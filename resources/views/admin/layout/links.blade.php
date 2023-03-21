@@ -13,3 +13,4 @@
     <link href="{{asset("assets/admin/css/style.bundle.rtl.css")}}" rel="stylesheet" type="text/css"/>
 @endif
 @yield("css")
+{{--If you make some changes--}}
