@@ -13,8 +13,3 @@
     <link href="{{asset("assets/admin/css/style.bundle.rtl.css")}}" rel="stylesheet" type="text/css"/>
 @endif
 @yield("css")
-{{--If you make some changes--}}
-{{--If i change some thing in master brach as now must commit and push it before marging with other brach--}}
-{{--If you need to create new branch--}}
-{{--Now we need to do new changes in the test branch and merging with master bracn--}}
-{{--chang--}}

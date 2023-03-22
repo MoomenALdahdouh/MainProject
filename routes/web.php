@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('lang/{lang}',[LanguageController::class,'switchLang'])->name('lang.switch');
 
 Route::get('blank', function () {
     return view('admin.blank');
