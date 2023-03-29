@@ -17,6 +17,7 @@
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px p-10">
                     <!--begin::Form-->
+
                     <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
                           data-kt-redirect-url="../../demo39/dist/index.html" action="{{route('admin.auth.login')}}"
                           method="POST">
