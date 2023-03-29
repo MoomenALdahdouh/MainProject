@@ -2019,7 +2019,7 @@
             <!--begin::Action-->
             <div class="app-navbar-item ms-2 ms-lg-6 me-lg-5">
                 <!--begin::Link-->
-                <a href="../../demo39/dist/authentication/layouts/corporate/sign-in.html"
+                <a href="{{route('admin.logout')}}"
                    class="btn btn-icon btn-custom btn-color-gray-600 btn-active-color-primary w-35px h-35px w-md-40px h-md-40px">
                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr096.svg-->
                     <span class="svg-icon svg-icon-1">
