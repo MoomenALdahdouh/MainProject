@@ -18,8 +18,8 @@
                 <div class="w-lg-500px p-10">
                     <!--begin::Form-->
 
-                    <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-                          data-kt-redirect-url="../../demo39/dist/index.html" action="{{route('admin.auth.login')}}"
+                    <form class="form w-100" novalidate="novalidate" id="form"
+                          data-kt-redirect-url="{{url()->previous()}}" action="{{route('admin.auth.login')}}"
                           method="POST">
                         @csrf
                         <!--begin::Heading-->
@@ -36,13 +36,10 @@
                         <div class="form-floating fv-row mb-8">
                             <!--begin::Email-->
                             <input id="email" type="email" name="email" autocomplete="off" placeholder="Email"
-                                   class="{{$errors->validator->has('email')?"is-invalid":""}} form-control" value="{{old('email')}}"/>
+                                   class="validator form-control" value="{{old('email')}}"/>
                             <label for="email">Email</label>
-                            @if($errors->validator->has('email'))
-                                <div class="fv-plugins-message-container invalid-feedback text-danger">
-                                    {{$errors->validator->first('email')}}
-                                </div>
-                            @endif
+                            <div id="email_error" class="errors d-none fv-plugins-message-container invalid-feedback text-danger">
+                            </div>
                             <!--end::Email-->
                         </div>
                         <!--end::Input group=-->
@@ -52,11 +49,8 @@
                                    class="{{$errors->validator->has('password')?"is-invalid":""}} form-control"
                                    value="{{old('password')}}"/>
                             <label for="password">Password</label>
-                            @if($errors->validator->has('password'))
-                                <div class="fv-plugins-message-container invalid-feedback text-danger">
-                                    {{$errors->validator->first('password')}}
-                                </div>
-                            @endif
+                            <div id="password_error" class="errors d-none fv-plugins-message-container invalid-feedback text-danger">
+                            </div>
                             <!--end::Password-->
                         </div>
                         <!--end::Input group=-->
@@ -71,7 +65,7 @@
                         <!--end::Wrapper-->
                         <!--begin::Submit button-->
                         <div class="d-grid mb-10">
-                            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+                            <button type="submit" id="submit_button" class="btn btn-primary">
                                 <!--begin::Indicator label-->
                                 <span class="indicator-label">Sign In</span>
                                 <!--end::Indicator label-->
@@ -224,6 +218,7 @@
 <!--end::Root-->
 @include("admin.layout.scripts")
 {{--<script src="{{asset("assets/admin/js/custom/authentication/sign-in/general.js")}}"></script>--}}
+@include("admin.crud.js.submit")
 </body>
 <!--end::Body-->
 </html>

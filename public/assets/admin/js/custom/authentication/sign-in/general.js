@@ -13,7 +13,7 @@ var KTSigninGeneral = function() {
         validator = FormValidation.formValidation(
 			form,
 			{
-				fields: {					
+				fields: {
 					'email': {
                         validators: {
                             regexp: {
@@ -31,7 +31,7 @@ var KTSigninGeneral = function() {
                                 message: 'The password is required'
                             }
                         }
-                    } 
+                    }
 				},
 				plugins: {
 					trigger: new FormValidation.plugins.Trigger(),
@@ -42,7 +42,7 @@ var KTSigninGeneral = function() {
                     })
 				}
 			}
-		);	
+		);
     }
 
     var handleSubmitDemo = function(e) {
@@ -57,9 +57,9 @@ var KTSigninGeneral = function() {
                     // Show loading indication
                     submitButton.setAttribute('data-kt-indicator', 'on');
 
-                    // Disable button to avoid multiple click 
+                    // Disable button to avoid multiple click
                     submitButton.disabled = true;
-                    
+
 
                     // Simulate ajax request
                     setTimeout(function() {
@@ -79,10 +79,10 @@ var KTSigninGeneral = function() {
                                 confirmButton: "btn btn-primary"
                             }
                         }).then(function (result) {
-                            if (result.isConfirmed) { 
+                            if (result.isConfirmed) {
                                 form.querySelector('[name="email"]').value= "";
-                                form.querySelector('[name="password"]').value= "";  
-                                                              
+                                form.querySelector('[name="password"]').value= "";
+
                                 //form.submit(); // submit form
                                 var redirectUrl = form.getAttribute('data-kt-redirect-url');
                                 if (redirectUrl) {
@@ -90,7 +90,7 @@ var KTSigninGeneral = function() {
                                 }
                             }
                         });
-                    }, 2000);   						
+                    }, 2000);
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                     Swal.fire({
@@ -121,18 +121,18 @@ var KTSigninGeneral = function() {
 
                     // Enable button
                     submitButton.disabled = false;
-                                        
-                    // Check axios library docs: https://axios-http.com/docs/intro 
+
+                    // Check axios library docs: https://axios-http.com/docs/intro
                     axios.post('/your/ajax/login/url', {
-                        email: form.querySelector('[name="email"]').value, 
-                        password: form.querySelector('[name="password"]').value 
+                        email: form.querySelector('[name="email"]').value,
+                        password: form.querySelector('[name="password"]').value
                     }).then(function (response) {
                         if (response) {
                             form.querySelector('[name="email"]').value= "";
-                            form.querySelector('[name="password"]').value= "";  
+                            form.querySelector('[name="password"]').value= "";
 
                             const redirectUrl = form.getAttribute('data-kt-redirect-url');
-                            
+
                             if (redirectUrl) {
                                 location.href = redirectUrl;
                             }
@@ -181,7 +181,7 @@ var KTSigninGeneral = function() {
         init: function() {
             form = document.querySelector('#kt_sign_in_form');
             submitButton = document.querySelector('#kt_sign_in_submit');
-            
+
             handleValidation();
             handleSubmitDemo(); // used for demo purposes only, if you use the below ajax version you can uncomment this one
             //handleSubmitAjax(); // use for ajax submit
