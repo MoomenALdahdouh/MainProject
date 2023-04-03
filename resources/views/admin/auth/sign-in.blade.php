@@ -38,18 +38,21 @@
                             <input id="email" type="email" name="email" autocomplete="off" placeholder="Email"
                                    class="validator form-control" value="{{old('email')}}"/>
                             <label for="email">Email</label>
-                            <div id="email_error" class="errors d-none fv-plugins-message-container invalid-feedback text-danger">
+                            <div id="email_error"
+                                 class="errors fv-plugins-message-container invalid-feedback text-danger">
                             </div>
                             <!--end::Email-->
                         </div>
                         <!--end::Input group=-->
                         <div class="form-floating fv-row mb-3">
                             <!--begin::Password-->
-                            <input id="password" type="password" name="password" autocomplete="off" placeholder="Password"
-                                   class="{{$errors->validator->has('password')?"is-invalid":""}} form-control"
+                            <input id="password" type="password" name="password" autocomplete="off"
+                                   placeholder="Password"
+                                   class="validator not_validator form-control"
                                    value="{{old('password')}}"/>
                             <label for="password">Password</label>
-                            <div id="password_error" class="errors d-none fv-plugins-message-container invalid-feedback text-danger">
+                            <div id="password_error"
+                                 class="errors fv-plugins-message-container invalid-feedback text-danger">
                             </div>
                             <!--end::Password-->
                         </div>
@@ -218,7 +221,7 @@
 <!--end::Root-->
 @include("admin.layout.scripts")
 {{--<script src="{{asset("assets/admin/js/custom/authentication/sign-in/general.js")}}"></script>--}}
-@include("admin.crud.js.submit")
+@include("admin.crud.js.sign-in")
 </body>
 <!--end::Body-->
 </html>

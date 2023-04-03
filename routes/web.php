@@ -39,5 +39,5 @@ Route::prefix('user')->name('user.')->group(function () {
 Route::get('lang/{lang}', [LanguageController::class, 'switchLang'])->name('lang.switch');
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('welcome');
 });

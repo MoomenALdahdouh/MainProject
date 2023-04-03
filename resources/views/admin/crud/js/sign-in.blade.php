@@ -21,8 +21,7 @@
                 type: type,
                 data: data,
                 success: function (response) {
-                    console.log(response);
-                    //redirect();
+                    redirect();
                 },
                 error: function (response) {
                     response = JSON.parse(response.responseText);
@@ -45,7 +44,7 @@
         }).then(function (result) {
             if (result.isConfirmed) {
                 form.reset();
-                //redirect();
+                redirect();
             }
         });
     }
