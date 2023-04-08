@@ -15,14 +15,14 @@
             validator_el.removeClass("is-invalid is-valid");
             let url = e.target.action,
                 type = form.method,
+                data_type = form.getAttribute('data-type'),
                 data = $(this).serializeArray();
             $.ajax({
                 url: url,
                 type: type,
                 data: data,
                 success: function (response) {
-                    console.log(response);
-                    //redirect();
+                    success_submit(response.success,data_type);
                 },
                 error: function (response) {
                     response = JSON.parse(response.responseText);
@@ -33,9 +33,9 @@
         });
     }
 
-    function success_submit() {
+    function success_submit(data,data_type) {
         Swal.fire({
-            text: "You have successfully logged in!",
+            text: "You have successfully submit form!",
             icon: "success",
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
@@ -45,7 +45,11 @@
         }).then(function (result) {
             if (result.isConfirmed) {
                 form.reset();
-                //redirect();
+                switch (data_type){
+                    case "render":
+                        $('#render_list').html(data);
+                        break;
+                }
             }
         });
     }

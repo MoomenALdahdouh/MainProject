@@ -17,7 +17,7 @@
 @section("content")
     <div>
         <!--begin::Row-->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 g-xl-9">
+        <div id="render_list" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 g-xl-9">
             @foreach($roles as $role)
                 <!--begin::Col-->
                 <div class="col-md-4">
@@ -122,7 +122,8 @@
                     <!--begin::Modal body-->
                     <div class="modal-body scroll-y mx-lg-5 my-7">
                         <!--begin::Form-->
-                        <form id="form"  class="form" method="POST" action="{{route('admin.roles.store')}}">
+                        <form id="form"  class="form" method="POST" action="{{route('admin.roles.store')}}"
+                        data-type="render">
                             @csrf
                             <!--begin::Scroll-->
                             <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_role_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_role_header" data-kt-scroll-wrappers="#kt_modal_add_role_scroll" data-kt-scroll-offset="300px">
@@ -148,6 +149,9 @@
                                     <!--begin::Label-->
                                     <label class="fs-5 fw-bold form-label mb-2">Role Permissions</label>
                                     <!--end::Label-->
+                                    <div id="permissions_error"
+                                         class="errors fv-plugins-message-container invalid-feedback text-danger">
+                                    </div>
                                     <!--begin::Table wrapper-->
                                     <div class="table-responsive">
                                         <!--begin::Table-->
