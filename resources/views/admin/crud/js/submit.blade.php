@@ -47,7 +47,10 @@
                 form.reset();
                 switch (data_type){
                     case "render":
-                        $('#render_list').html(data);
+                        $('#render_content').html(data);
+                        break;
+                    case "list":
+                        // TODO:: Reload the teable here after add new item
                         break;
                 }
             }

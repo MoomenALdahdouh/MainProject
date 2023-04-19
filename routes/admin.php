@@ -35,10 +35,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
                     Route::get('/', 'index')->name('index')->middleware(['permission:admin_roles_read']);
                     Route::post('/', 'store')->name('store')->middleware(['permission:admin_roles_write']);
                     Route::get('create', 'create')->name('create')->middleware(['permission:admin_roles_create']);
-                    Route::get('{id}', 'edit')->name('edit')->middleware(['permission:admin_roles_write']);
+                    Route::get('{id}/edit', 'edit')->name('edit')->middleware(['permission:admin_roles_write']);
                     Route::get('{id}/show', 'show')->name('show')->middleware(['permission:admin_roles_read']);
-                    Route::put('{id}', 'update')->name('update')->middleware(['permission:admin_roles_write']);
-                    Route::delete('{id}', 'delete')->name('delete')->middleware(['permission:admin_roles_delete']);
+                    Route::post('{id}/update', 'update')->name('update')->middleware(['permission:admin_roles_write']);
+                    Route::delete('{id}/delete', 'delete')->name('delete')->middleware(['permission:admin_roles_delete']);
                 });
 
             Route::prefix('users')
@@ -49,10 +49,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
                     Route::get('/', 'index')->name('index')->middleware(['permission:admin_users_read']);
                     Route::post('/', 'store')->name('store')->middleware(['permission:admin_users_write']);
                     Route::get('create', 'create')->name('create')->middleware(['permission:admin_users_create']);
-                    Route::get('{id}', 'edit')->name('edit')->middleware(['permission:admin_users_write']);
+                    Route::get('{id}/edit', 'edit')->name('edit')->middleware(['permission:admin_users_write']);
                     Route::get('{id}/show', 'show')->name('show')->middleware(['permission:admin_users_read']);
-                    Route::put('{id}', 'update')->name('update')->middleware(['permission:admin_users_write']);
-                    Route::delete('{id}', 'delete')->name('delete')->middleware(['permission:admin_users_delete']);
+                    Route::put('{id}/update', 'update')->name('update')->middleware(['permission:admin_users_write']);
+                    Route::delete('{id}/delete', 'delete')->name('delete')->middleware(['permission:admin_users_delete']);
                 });
         });
 });
